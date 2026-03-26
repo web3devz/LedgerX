@@ -1,11 +1,12 @@
 [package]
 name = "LedgerX"
 version = "0.0.1"
-upgrade_policy = "compatible"
+edition = "2024.beta"
 
 [addresses]
 ledgerx = "0x0"
+one = "0x2"
 
 [dependencies]
-MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", subdir = "external-crates/move-stdlib", rev = "testnet" }
-Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "testnet" }
+One = { local = "../../onechain/crates/sui-framework/packages/one-framework" }
+MoveStdlib = { local = "../../onechain/crates/sui-framework/packages/move-stdlib" }

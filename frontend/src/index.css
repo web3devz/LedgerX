@@ -1,0 +1,4 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--accent:#06b6d4;--accent-dim:#0891b2;--bg:#050a0f;--surface:#0f1419;--surface2:#1a1f2e;--border:#1e2535;--text:#e8e8f0;--muted:#6b6b8a;--success:#4ade80;--error:#f87171}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6}
+a{color:var(--accent);text-decoration:none}
