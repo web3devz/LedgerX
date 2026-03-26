@@ -74,3 +74,23 @@
 .step-card p{font-size:.95rem!important;line-height:1.7!important}
 .step-num{font-size:.8rem!important}
 .step-icon{font-size:2.2rem!important}
+
+/* Landing page spacing & size overrides */
+body{font-size:17px}
+.hero{padding:7rem 2rem 4rem}
+.hero h1{font-size:clamp(3rem,6vw,5rem)!important;margin-bottom:1.75rem!important}
+.hero-sub{font-size:1.2rem!important;max-width:600px!important;margin-bottom:3rem!important;line-height:1.8!important}
+.hero-badge{font-size:.85rem!important;padding:.35rem 1.2rem!important;margin-bottom:2rem!important}
+.feature{font-size:1rem!important;padding:.65rem 1.25rem!important}
+.stats-bar{padding:3.5rem 2rem!important;gap:5rem!important}
+.stat-value{font-size:2.6rem!important}
+.stat-label{font-size:.9rem!important;margin-top:.4rem!important}
+.how-section{padding:5rem 2rem!important}
+.section-title{font-size:2.4rem!important;margin-bottom:.75rem!important}
+.section-sub{font-size:1.15rem!important;margin-bottom:3.5rem!important}
+.steps-grid{gap:1.75rem!important;max-width:1000px!important}
+.step-card{padding:2.25rem 2rem!important}
+.step-num{font-size:.85rem!important;margin-bottom:1rem!important}
+.step-icon{font-size:2.5rem!important;margin-bottom:1rem!important}
+.step-card h3{font-size:1.2rem!important;margin-bottom:.6rem!important}
+.step-card p{font-size:1rem!important;line-height:1.75!important}
