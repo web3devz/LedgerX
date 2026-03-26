@@ -1,4 +1,4 @@
-# LedgerX
+# LedgerX 📒
 
 A decentralized financial logging system built on **OneChain**. Users record transactions immutably on-chain — no centralized storage, no data manipulation. Suitable for personal finance tracking, shared expense management, and accountability-focused applications.
 
@@ -13,6 +13,16 @@ A decentralized financial logging system built on **OneChain**. Users record tra
 
 - [View Package](https://onescan.cc/testnet/packageDetail?packageId=0xede946c09ff47552253fe8049ad2aa99e54894b2fde68c484c7bd33560fda01d)
 - [View Deploy Tx](https://onescan.cc/testnet/transactionBlocksDetail?digest=3uWhCUTnDcert6tjh4kPd8p36GRzWYKhYEyKvP2DfUzZ)
+
+---
+
+## Features
+
+- Create a personal on-chain ledger (one per wallet)
+- Record credit/debit entries with category and notes
+- Full transaction history fetched via dynamic fields
+- Live credits, debits, and net balance display
+- **AI Financial Summary** — click "🤖 AI Summary" to get GPT-4o-mini analysis of your spending patterns, top category insight, and actionable financial advice
 
 ---
 
@@ -42,6 +52,7 @@ cd frontend && npm install && npm run dev
 Set in `frontend/.env`:
 ```env
 VITE_PACKAGE_ID=<package_id>
+VITE_OPENAI_KEY=<openai_api_key>
 ```
 
 ## License
