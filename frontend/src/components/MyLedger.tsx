@@ -1,5 +1,7 @@
-import { useCurrentAccount, useSuiClientQuery } from '@mysten/dapp-kit'
-import { PACKAGE_ID } from '../config/network'
+import { useCurrentAccount, useSuiClientQuery, useSignAndExecuteTransaction } from '@mysten/dapp-kit'
+import { Transaction } from '@mysten/sui/transactions'
+import { PACKAGE_ID, txUrl } from '../config/network'
+import { useState } from 'react'
 
 interface LedgerFields {
   owner: string
@@ -9,23 +11,57 @@ interface LedgerFields {
 
 export default function MyLedger() {
   const account = useCurrentAccount()
-  const { data, isPending, error } = useSuiClientQuery('getOwnedObjects', {
+  const { mutate: signAndExecute, isPending } = useSignAndExecuteTransaction()
+  const [txDigest, setTxDigest] = useState('')
+  const [error, setError] = useState('')
+
+  const { data, isPending: isLoading, refetch } = useSuiClientQuery('getOwnedObjects', {
     owner: account?.address ?? '',
     filter: { StructType: `${PACKAGE_ID}::ledger::Ledger` },
     options: { showContent: true },
   })
 
-  if (isPending) return <div className="status-box">Loading your ledger...</div>
-  if (error) return <div className="status-box error">Error: {error.message}</div>
+  const createLedger = () => {
+    setError('')
+    const tx = new Transaction()
+    tx.moveCall({ target: `${PACKAGE_ID}::ledger::create_ledger`, arguments: [] })
+    signAndExecute(
+      { transaction: tx },
+      {
+        onSuccess: (r) => { setTxDigest(r.digest); refetch() },
+        onError: (e) => setError(e.message),
+      }
+    )
+  }
+
+  if (isLoading) return <div className="status-box">Loading your ledger...</div>
 
   const ledgers = data?.data ?? []
 
   if (ledgers.length === 0) {
     return (
-      <div className="empty-state">
-        <div className="empty-icon">📊</div>
-        <h3>No ledger found</h3>
-        <p>Create your first ledger to start recording transactions.</p>
+      <div className="card">
+        <div className="card-header">
+          <h2>My Ledger</h2>
+          <p className="card-desc">You don't have a ledger yet. Create one to start recording.</p>
+        </div>
+
+        <div className="empty-state" style={{ padding: '2rem 0' }}>
+          <div className="empty-icon">📒</div>
+          <h3>No ledger found</h3>
+          <p style={{ marginBottom: '1.5rem' }}>Create your personal on-chain ledger to begin tracking transactions.</p>
+          <button className="btn-primary" onClick={createLedger} disabled={isPending}>
+            {isPending ? 'Creating...' : '+ Create Ledger'}
+          </button>
+        </div>
+
+        {error && <p className="error" style={{ marginTop: '1rem' }}>⚠ {error}</p>}
+        {txDigest && (
+          <div className="tx-success" style={{ marginTop: '1rem' }}>
+            <span>✅ Ledger created</span>
+            <a href={txUrl(txDigest)} target="_blank" rel="noreferrer">View tx ↗</a>
+          </div>
+        )}
       </div>
     )
   }
