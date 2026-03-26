@@ -110,3 +110,17 @@ body{font-size:17px}
 .ai-insight-item{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.9rem 1rem}
 .ai-insight-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.4rem}
 .ai-insight-value{font-size:.9rem;color:var(--text);line-height:1.6}
+
+/* Entry List */
+.entry-list{display:flex;flex-direction:column;gap:.5rem}
+.entry-row{display:flex;align-items:center;gap:1rem;padding:.85rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:10px}
+.entry-type{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;flex-shrink:0}
+.entry-type.credit{background:rgba(74,222,128,.12);color:#4ade80}
+.entry-type.debit{background:rgba(248,113,113,.12);color:#f87171}
+.entry-details{flex:1;min-width:0}
+.entry-category{font-size:.92rem;font-weight:600;color:var(--text)}
+.entry-note{font-size:.78rem;color:var(--muted);margin-top:.15rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.entry-amount{font-size:1rem;font-weight:700;flex-shrink:0}
+.entry-amount.credit{color:#4ade80}
+.entry-amount.debit{color:#f87171}
+.meta-label{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
