@@ -11,7 +11,7 @@ A decentralized financial logging system built on **OneChain**. Users record tra
 | Package ID | `0xede946c09ff47552253fe8049ad2aa99e54894b2fde68c484c7bd33560fda01d` |
 | Deploy Transaction | `3uWhCUTnDcert6tjh4kPd8p36GRzWYKhYEyKvP2DfUzZ` |
 
-- [View Package](https://onescan.cc/testnet/objectDetails?address=0xede946c09ff47552253fe8049ad2aa99e54894b2fde68c484c7bd33560fda01d)
+- [View Package](https://onescan.cc/testnet/packageDetail?packageId=0xede946c09ff47552253fe8049ad2aa99e54894b2fde68c484c7bd33560fda01d)
 - [View Deploy Tx](https://onescan.cc/testnet/transactionBlocksDetail?digest=3uWhCUTnDcert6tjh4kPd8p36GRzWYKhYEyKvP2DfUzZ)
 
 ---
